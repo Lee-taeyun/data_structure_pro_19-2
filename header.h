@@ -55,3 +55,5 @@ int stringParser(const string& str);
 string no_front_blank(string& str);
 string GetNextToken(string& str);
 string Downgrade(string str);
+string Preprocessing(string& str);
+int Eval(int root, HashTable& hash, Memo& memory);
