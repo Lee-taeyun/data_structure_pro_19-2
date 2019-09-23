@@ -60,6 +60,7 @@ int stringParser(const string& str) {
 		}
 
 	}
+	return str.length();
 
 }
 //아무것도 없으면 -1을반환하는 stringParser

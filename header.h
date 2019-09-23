@@ -4,11 +4,21 @@
 #include <string>
 #include <iostream>
 
-#define MEM_SIZE 31
+#define MEM_SIZE 100
 #define HASH_SIZE 100
 
 #define LEFT_PEREN 1//¿ÞÂÊ °ýÈ£ÀÇ hashvalue=1, ¿À¸¥ÂÊ °ýÈ£ÀÇ hashvalue =2
 #define RIGHT_PEREN 2
+
+#define PLUS 43
+#define MINUS 45
+#define TIMES 42
+#define CONS 7
+#define COND 92
+#define CAR 14
+#define CDR	17
+#define DEFINE 27
+#define QUOTE 98
 
 
 using namespace std;
@@ -57,3 +67,5 @@ string GetNextToken(string& str);
 string Downgrade(string str);
 string Preprocessing(string& str);
 int Eval(int root, HashTable& hash, Memo& memory);
+int Getval(int hash_value, HashTable& hash);
+bool is_digit(string str);

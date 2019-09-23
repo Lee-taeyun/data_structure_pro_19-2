@@ -8,22 +8,26 @@ int main() {
 
 	Initialize(Memory, HashTable);
 	string command;
+
+
 	while (cout << ">", getline(cin, command)) {
 		if (command == "") break;
 		while (no_front_blank(command) != "") {
-			command = Preprocessing(command);//this is newcommand
-			int root = Read(command, HashTable, MEM_SIZE, Memory);
-			//int result = Eval(root, HashTable, Memory);
 
-			PrintMemHash(HashTable, Memory, root);
-			Print(root, root, HashTable, Memory);
+			command = Preprocessing(command);//this is newcommand
+			
+			int root = Read(command, HashTable, MEM_SIZE, Memory);
+			int result = Eval(root, HashTable, Memory);
+			PrintMemHash(HashTable, Memory, result);
+			Print(result, result, HashTable, Memory);
+			
 			//Memreset(Memory, MEM_SIZE,root);
 			cout << endl << endl;
 		}
 
 
 	}
-
+	
 	
 
 

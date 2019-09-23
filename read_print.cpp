@@ -19,9 +19,17 @@ void Initialize(Memo& memory, HashTable& hash) {
 	hash.tabs = new Hashtab[HASH_SIZE];
 	//'(', ')'도 HASHTAB에 넣어줘야한다. 1에 '(', 2에 ')']
 
-	hash.tabs[1].symbol = "(";
-	hash.tabs[2].symbol = ")";
-
+	hash.tabs[LEFT_PEREN].symbol = "(";
+	hash.tabs[RIGHT_PEREN].symbol = ")";
+	hash.tabs[PLUS].symbol = "+";
+	hash.tabs[MINUS].symbol = "-";
+	hash.tabs[TIMES].symbol = "*";
+	hash.tabs[CONS].symbol = "cons";
+	hash.tabs[COND].symbol = "cond";
+	hash.tabs[CAR].symbol = "car";
+	hash.tabs[CDR].symbol = "cdr";
+	hash.tabs[DEFINE].symbol = "define";
+	hash.tabs[QUOTE].symbol = "quote";
 
 }
 
@@ -163,7 +171,7 @@ void PrintMemHash(const HashTable& HashTable, const Memo& Memory,int root) {
 	
 	cout << " free list=" << endl;
 	//Printtree(Memory.free_list, Memory.free_list,  Memory);
-	Printfree(Memory.free_list, Memory);
+	//Printfree(Memory.free_list, Memory);
 
 	cout << endl;
 
