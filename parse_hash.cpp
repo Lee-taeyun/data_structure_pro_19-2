@@ -13,17 +13,57 @@ int calculate_hash(const string& str) {
 
 //설마 HASHSIZE는 안변하겠지..?
 int GetHashValue(const string& str, HashTable& hash, int hash_len) {
-	if (str == "(")
+	string str2 = Downgrade(str);
+	if (str2 == "(")
 		return LEFT_PEREN;
-	if (str == ")")
+	else if (str2 == ")")
 		return RIGHT_PEREN;
+	else if (str2 == "+")
+		return PLUS;
+	else if (str2 == "-")
+		return MINUS;
+	else if (str2 == "*")
+		return TIMES;
+	else if (str2 == "cons")
+		return CONS;
+	else if (str2 == "cond")
+		return COND;
+	else if (str2 == "car")
+		return CAR;
+	else if (str2 == "cdr")
+		return CDR;
+	else if (str2 == "define")
+		return DEFINE;
+	else if (str2 == "quote")
+		return QUOTE;
+	else if (str2 == ">")
+		return LEFT_LARGE;
+	else if (str2 == "<")
+		return RIGHT_LARGE;
+	else if (str2 == ">=")
+		return LEFT_EQLARGE;
+	else if (str2 == "<=")
+		return RIGHT_EQLARGE;
+	else if (str2 == "==")
+		return EQ;
+	else if (str2 == "!=")
+		return NOT_EQ;
+	else if (str2 == "else")
+		return ELSE;
+	else if (str2 == "lambda")
+		return LAMBDA;
+	else if (str2 == "#t")
+		return TRUE;
+	else if (str2 == "#f")
+		return FALSE;
+
 	//위의 경우는 특수케이스
 
-	int cal = calculate_hash(str);
+	int cal = calculate_hash(str2);
 	//일단 비어있는지 확인하고 안 비어있으면 symbol이 같은지 확인.
 	//혹시 끝까지 갔으면 처음으로 돌아가서 
 	while (hash.tabs[cal].symbol != "") {
-		if (hash.tabs[cal].symbol == str) {
+		if (hash.tabs[cal].symbol == str2) {
 			return cal;
 		}
 

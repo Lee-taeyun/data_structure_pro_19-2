@@ -1,6 +1,7 @@
 #include "header.h"
 
 
+
 int main() {
 
 	Memo Memory;
@@ -8,14 +9,15 @@ int main() {
 
 	Initialize(Memory, HashTable);
 	string command;
-
+	int a = 1;
+	cout << (a == 1) << endl;
 
 	while (cout << ">", getline(cin, command)) {
 		if (command == "") break;
 		while (no_front_blank(command) != "") {
 
-			command = Preprocessing(command);//this is newcommand
-			
+			command = Preprocessing(command);//this is newcommamd
+			cout << command << endl;
 			int root = Read(command, HashTable, MEM_SIZE, Memory);
 			int result = Eval(root, HashTable, Memory);
 			PrintMemHash(HashTable, Memory, result);

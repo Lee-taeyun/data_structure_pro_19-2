@@ -19,7 +19,17 @@
 #define CDR	17
 #define DEFINE 27
 #define QUOTE 98
-
+#define LEFT_LARGE 62
+#define RIGHT_LARGE 60
+#define LEFT_EQLARGE 23
+#define RIGHT_EQLARGE 21
+#define EQ 22
+#define NOT_EQ 94
+#define ELSE 95
+#define LAMBDA 99
+#define TRUE 3
+#define FALSE 2
+#define STACK_SIZE 10
 
 using namespace std;
 
@@ -29,8 +39,8 @@ public:
 	int rchild = 0;
 };
 /* 왼쪽은 car한 거 예를 들어 다음 노드의 값 or hashtable의 hashvalue; hashvalue이면 음의 값으로 들어가고, 다음노드의 id이면 양수로 들어감
-오른쪽에는 cdr한거 보통 다음 노드이거나, 끝이면 NULL
-*/
+-오른쪽에는 cdr한거 보통 다음 노드이거나, 끝이면 NULL
+-*/
 class Memo {
 public:
 	Node* Nodes;
@@ -50,6 +60,24 @@ class HashTable {
 public:
 	Hashtab* tabs;
 	~HashTable();
+};
+
+class Stab {
+public:
+	Stab();
+	Stab(int a, int b);
+	int argument=0;
+	int assigned=0;
+};
+class Stack {
+public:
+	Stab* tabs;
+	int top = -1;
+	int capacity = STACK_SIZE;
+	Stack();
+	void push(Stab value);
+	Stab pop(HashTable& hash, Memo &memory);
+	~Stack();
 };
 // symbol이랑 linkvalue 탭만 있을면 되겠지
 

@@ -30,6 +30,16 @@ void Initialize(Memo& memory, HashTable& hash) {
 	hash.tabs[CDR].symbol = "cdr";
 	hash.tabs[DEFINE].symbol = "define";
 	hash.tabs[QUOTE].symbol = "quote";
+	hash.tabs[LEFT_LARGE].symbol = ">"; // >
+	hash.tabs[RIGHT_LARGE].symbol = "<"; //<
+	hash.tabs[LEFT_EQLARGE].symbol = ">="; //>=
+	hash.tabs[RIGHT_EQLARGE].symbol = "<=";//<=
+	hash.tabs[EQ].symbol = "=="; //==
+	hash.tabs[NOT_EQ].symbol = "!=";
+	hash.tabs[ELSE].symbol = "else";
+	hash.tabs[LAMBDA].symbol = "lambda";
+	hash.tabs[TRUE].symbol = "#t";
+	hash.tabs[FALSE].symbol = "#f";
 
 }
 
@@ -170,7 +180,7 @@ void PrintMemHash(const HashTable& HashTable, const Memo& Memory,int root) {
 	cout << endl;
 	
 	cout << " free list=" << endl;
-	//Printtree(Memory.free_list, Memory.free_list,  Memory);
+	
 	//Printfree(Memory.free_list, Memory);
 
 	cout << endl;
@@ -179,7 +189,7 @@ void PrintMemHash(const HashTable& HashTable, const Memo& Memory,int root) {
 	cout << setw(12) << "Hash Index" << setw(12) << "symbol" << endl;
 	for (int i = 0; i < HASH_SIZE; i++) {
 		if(HashTable.tabs[i].symbol != "")
-			cout << setw(12) << i << ' ' << setw(12) << HashTable.tabs[i].symbol << endl;
+			cout << setw(12) << i << ' ' << setw(12) << HashTable.tabs[i].symbol <<setw(12) << HashTable.tabs[i].Linkvalue << endl;
 	}
 
 	cout << endl;
