@@ -40,6 +40,9 @@ void Initialize(Memo& memory, HashTable& hash) {
 	hash.tabs[LAMBDA].symbol = "lambda";
 	hash.tabs[TRUE].symbol = "#t";
 	hash.tabs[FALSE].symbol = "#f";
+	hash.tabs[ERROR].symbol = "error";
+	hash.tabs[NODE_INDEX].symbol = "NODE";
+	hash.tabs[NULL_Q].symbol = "null?";
 
 }
 

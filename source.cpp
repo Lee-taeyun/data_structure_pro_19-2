@@ -10,7 +10,6 @@ int main() {
 	Initialize(Memory, HashTable);
 	string command;
 	int a = 1;
-	cout << (a == 1) << endl;
 
 	while (cout << ">", getline(cin, command)) {
 		if (command == "") break;

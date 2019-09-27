@@ -56,6 +56,12 @@ int GetHashValue(const string& str, HashTable& hash, int hash_len) {
 		return TRUE;
 	else if (str2 == "#f")
 		return FALSE;
+	else if (str == "error")
+		return ERROR;
+	else if (str == "null?")
+		return NULL_Q;
+	else if (str == "NODE")
+		return NODE_INDEX;
 
 	//위의 경우는 특수케이스
 
@@ -95,7 +101,7 @@ int stringParser(const string& str) {
 	//이제 blank 없이 시작한다.
 	for (int i = 0; i < len; i++) {
 
-		if (str[i] == '(' || str[i] == ')' || str[i] == ' ') {
+		if (str[i] == '(' || str[i] == ')' || str[i] == ' ' || str[i] == '\'') {
 			return i - 1;
 		}
 

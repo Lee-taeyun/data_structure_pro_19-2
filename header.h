@@ -5,7 +5,7 @@
 #include <iostream>
 
 #define MEM_SIZE 100
-#define HASH_SIZE 100
+#define HASH_SIZE 101
 
 #define LEFT_PEREN 1//¿ÞÂÊ °ýÈ£ÀÇ hashvalue=1, ¿À¸¥ÂÊ °ýÈ£ÀÇ hashvalue =2
 #define RIGHT_PEREN 2
@@ -28,8 +28,11 @@
 #define ELSE 95
 #define LAMBDA 99
 #define TRUE 3
-#define FALSE 2
+#define FALSE 4
 #define STACK_SIZE 10
+#define ERROR 100
+#define NODE_INDEX 5
+#define NULL_Q 11
 
 using namespace std;
 
@@ -78,6 +81,7 @@ public:
 	void push(Stab value);
 	Stab pop(HashTable& hash, Memo &memory);
 	~Stack();
+	Stab pop();
 };
 // symbolÀÌ¶û linkvalue ÅÇ¸¸ ÀÖÀ»¸é µÇ°ÚÁö
 
@@ -95,5 +99,5 @@ string GetNextToken(string& str);
 string Downgrade(string str);
 string Preprocessing(string& str);
 int Eval(int root, HashTable& hash, Memo& memory);
-int Getval(int hash_value, HashTable& hash);
+int Getval(int hash_value, HashTable& hash, Memo& memory);
 bool is_digit(string str);
